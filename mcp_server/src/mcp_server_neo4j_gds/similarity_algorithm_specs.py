@@ -12,12 +12,20 @@ similarity_tool_definitions = [
             "type": "object",
             "properties": {
                 "sourceNodeFilter": {
-                    "type": ["integer", "array", "string"],
                     "description": "The source node filter to apply. Accepts a single node id, a List of node ids, or a single label.",
+                    "anyOf": [
+                        {"type": "integer"},
+                        {"type": "string"},
+                        {"type": "array", "items": {"type": "integer"}}
+                    ]
                 },
                 "targetNodeFilter": {
-                    "type": ["integer", "array", "string"],
                     "description": "The target node filter to apply. Accepts a single node id, a List of node ids, or a single label.",
+                    "anyOf": [
+                        {"type": "integer"},
+                        {"type": "string"},
+                        {"type": "array", "items": {"type": "integer"}}
+                    ]
                 },
                 "similarityCutoff": {
                     "type": "number",
@@ -103,16 +111,28 @@ similarity_tool_definitions = [
             "type": "object",
             "properties": {
                 "sourceNodeFilter": {
-                    "type": ["integer", "array", "string"],
                     "description": "The source node filter to apply. Accepts a single node id, a List of node ids, or a single label.",
+                    "anyOf": [
+                        {"type": "integer"},
+                        {"type": "string"},
+                        {"type": "array", "items": {"type": "integer"}}
+                    ]
                 },
                 "targetNodeFilter": {
-                    "type": ["integer", "array", "string"],
                     "description": "The target node filter to apply. Accepts a single node id, a List of node ids, or a single label.",
+                    "anyOf": [
+                        {"type": "integer"},
+                        {"type": "string"},
+                        {"type": "array", "items": {"type": "integer"}}
+                    ]
                 },
                 "nodeProperties": {
-                    "type": ["string", "object", "array"],
                     "description": "The node properties to use for similarity computation along with their selected similarity metrics. Accepts a single property key, a Map of property keys to metrics, or a List of property keys and/or Maps, as above.",
+                    "anyOf": [
+                        {"type": "string"},
+                        {"type": "object"},
+                        {"type": "array", "items": {"anyOf": [{"type": "string"}, {"type": "object"}]}}
+                    ]
                 },
                 "topK": {
                     "type": "integer",
