@@ -34,24 +34,14 @@ centrality_tool_definitions = [
                     "description": "Property of the relationship to use for weighting. If not specified, all relationships are treated equally.",
                 },
                 "sourceNodes": {
-                    "description": "The nodes or node-bias pairs to use for computing Personalized Article Rank. To use different bias for different source nodes, use the syntax: [[node1, bias1], [node2, bias2], ...]",
+                    "description": "The nodes to use for computing Personalized Article Rank (string or array of strings)",
                     "anyOf": [
                         {"type": "string", "description": "Single node"},
                         {
                             "type": "array",
                             "items": {"type": "string"},
                             "description": "List of nodes",
-                        },
-                        {
-                            "type": "array",
-                            "items": {
-                                "type": "array",
-                                "prefixItems": [{"type": "string"}, {"type": "number"}],
-                                "minItems": 2,
-                                "maxItems": 2,
-                            },
-                            "description": "List of [node, bias] pairs",
-                        },
+                        }
                     ],
                 },
                 "scaler": {
@@ -314,24 +304,14 @@ centrality_tool_definitions = [
                     "description": "Property of the relationship to use for weighting. If not specified, all relationships are treated equally.",
                 },
                 "sourceNodes": {
-                    "description": "The nodes or node-bias pairs to use for computing Personalized Eigenvector Centrality. To use different bias for different source nodes, use the syntax: [[node1, bias1], [node2, bias2], ...]",
+                    "description": "The nodes to use for computing Personalized Eigenvector Centrality (string or array of strings)",
                     "anyOf": [
                         {"type": "string", "description": "Single node"},
                         {
                             "type": "array",
                             "items": {"type": "string"},
                             "description": "List of nodes",
-                        },
-                        {
-                            "type": "array",
-                            "items": {
-                                "type": "array",
-                                "prefixItems": [{"type": "string"}, {"type": "number"}],
-                                "minItems": 2,
-                                "maxItems": 2,
-                            },
-                            "description": "List of [node, bias] pairs",
-                        },
+                        }
                     ],
                 },
                 "scaler": {
@@ -381,24 +361,14 @@ centrality_tool_definitions = [
                     "description": "Minimum change in scores between iterations. If all scores change less than the tolerance value the result is considered stable and the algorithm returns.",
                 },
                 "sourceNodes": {
-                    "description": "The nodes or node-bias pairs to use for computing Personalized PageRank. To use different bias for different source nodes, use the syntax: [[node1, bias1], [node2, bias2], ...]",
+                    "description": "The nodes to use for computing Personalized PageRank (string or array of strings)",
                     "anyOf": [
                         {"type": "string", "description": "Single node"},
                         {
                             "type": "array",
                             "items": {"type": "string"},
                             "description": "List of nodes",
-                        },
-                        {
-                            "type": "array",
-                            "items": {
-                                "type": "array",
-                                "prefixItems": [{"type": "string"}, {"type": "number"}],
-                                "minItems": 2,
-                                "maxItems": 2,
-                            },
-                            "description": "List of [node, bias] pairs",
-                        },
+                        }
                     ],
                 },
             },
